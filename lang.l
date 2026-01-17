@@ -1,29 +1,12 @@
 %{
-//**************************************
-// lang.l
-//
-// scanner definition file. flex uses this file to create the scanner
-//
-// Author: <<<< insert your name here >>>>
-//
-
 #include "lex.h"
 #include "tokens.h"
+#include "cSymbolTable.hpp"
+#include <string>
 
+extern cSymbolTable g_symbolTable;
 
-// Macros that can be used to create debug output from the scanner
-// Uncomment the next line of code to generate debug output.
-// Note: for this to work, use DO_RETURN(val) for all the return statements
-//       for your tokens. See sample below for "program"
-//#define DEBUG_OUTPUT
-#ifdef DEBUG_OUTPUT
-    #define DO_RETURN(a) { return Return(a); }
-#else
-    #define DO_RETURN(a) { return (a); }
-#endif
-
-int Return(int val);
-
+static int Process_ID(const char* text);
 %}
 
 %option noyywrap
@@ -31,21 +14,37 @@ int Return(int val);
 %option nounput
 %option yylineno
 
+LETTER      [A-Za-z_]
+DIGIT       [0-9]
+IDENT       {LETTER}({LETTER}|{DIGIT})*
+INTCONST    {DIGIT}+
 
-    /* definitions go here. period is an example. */
-    /* NOTE: You do not need to use definitions */
-letters          [a-z]
+WS          [ \t\r\n]+
+COMMENT     "//".*
+
 %%
 
-    // token definitions. I gave "program" as an example
-program                   DO_RETURN(PROGRAM);
+{WS}            ;
+{COMMENT}       ;
+
+"{"             { g_symbolTable.IncreaseScope(); return '{'; }
+"}"             { g_symbolTable.DecreaseScope(); return '}'; }
+
+"+"             { return '+'; }
+"-"             { return '-'; }
+
+{INTCONST}      { return INT_VAL; }
+{IDENT}         { return Process_ID(yytext); }
+
+.               { return JUNK_TOKEN; }
 
 %%
 
-// This function allows us to do extra processing on each token
-// It is used to generate lexer debug info
-int Return(int val)
+static int Process_ID(const char* text)
 {
-    printf("Scanned '%s': %d\n", yytext, val);
-    return val;
+    std::string name(text);
+    cSymbol* sym = g_symbolTable.LookupLocal(name);
+    if (!sym) sym = g_symbolTable.Insert(name);
+    yylval.symbol = sym;
+    return IDENTIFIER;
 }

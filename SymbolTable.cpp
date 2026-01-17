@@ -45,3 +45,5 @@ std::shared_ptr<SymbolTable> SymbolTable::createInstance()
 {
     return std::dynamic_pointer_cast<SymbolTable>(std::make_shared<SymbolTableImplementation>());
 }
+
+std::shared_ptr<SymbolTable> g_symbolTable = SymbolTable::createInstance();
