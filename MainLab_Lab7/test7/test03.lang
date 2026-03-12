@@ -1,0 +1,11 @@
+// Chris Grende - arithmetic precedence and associativity
+program
+{
+    int x;
+    x = 2 + 3 * 4;
+    print(x);
+    x = (2 + 3) * 4;
+    print(x);
+    x = 20 / 5 + 7 % 4;
+    print(x);
+}

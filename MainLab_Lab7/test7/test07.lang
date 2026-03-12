@@ -1,0 +1,11 @@
+// Chris Grende - function without params and return value
+program
+{
+    int give();
+    int give()
+    {
+        return 11;
+    }
+
+    print(give());
+}

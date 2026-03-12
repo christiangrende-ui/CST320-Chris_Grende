@@ -1,0 +1,4 @@
+#!/bin/bash
+for test in 01 02 03 04 05 06 07 08; do
+    ./test7/runc test$test
+done

@@ -1,0 +1,17 @@
+// Chris Grende - while loop and if else
+program
+{
+    int i;
+    i = 0;
+    while (i < 3)
+    {
+        print(i);
+        i = i + 1;
+    }
+
+    if (i == 3)
+        print(9);
+    else
+        print(0);
+    endif;
+}

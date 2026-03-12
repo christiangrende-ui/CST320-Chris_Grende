@@ -1,0 +1,6 @@
+// Chris Grende - basic print of integer literals
+program
+{
+    print(1);
+    print(2);
+}

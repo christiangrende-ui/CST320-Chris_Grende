@@ -1,0 +1,10 @@
+// Chris Grende - local vars, assignment, char and int printing
+program
+{
+    char c;
+    int x;
+    c = 7;
+    x = 20;
+    print(c);
+    print(x);
+}

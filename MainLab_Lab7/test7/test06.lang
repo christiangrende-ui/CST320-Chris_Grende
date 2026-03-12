@@ -1,0 +1,10 @@
+// Chris Grende - one dimensional array lvals and rvals
+program
+{
+    array int[4] int4;
+    int4 vals;
+    vals[0] = 10;
+    vals[1] = 20;
+    vals[2] = vals[0] + vals[1];
+    print(vals[2]);
+}
