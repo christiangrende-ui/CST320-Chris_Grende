@@ -1,0 +1,254 @@
+; FILE: io320.sl
+  Code    Data
+    16       0     .function strrev
+    16       0     strrev:
+    16       0     ADJSP 16
+    16       4     PUSHVAR -12
+    16       8     PUSH 0
+    16      12     EQ
+    16      16     JUMPE @$LABEL_2
+    16      20     PUSH 0
+    16      24     RETURNV
+    16      28     $LABEL_2:
+    16      28     PUSHVAR -12
+    16      32     DUP
+    16      36     PUSH 4
+    16      40     PUSHFP
+    16      44     PLUS
+    16      48     POPVARIND
+    16      52     POP
+    16      56     PUSHVAR -12
+    16      60     DUP
+    16      64     PUSH 0
+    16      68     PUSHFP
+    16      72     PLUS
+    16      76     POPVARIND
+    16      80     POP
+    16      84     $LABEL_3:
+    16      84     PUSHVAR 4
+    16      88     PUSHCVARIND
+    16      92     JUMPE @$LABEL_4
+    16      96     PUSHVAR 4
+    16     100     PUSHVAR 4
+    16     104     PUSH 1
+    16     108     PLUS
+    16     112     PUSH 4
+    16     116     PUSHFP
+    16     120     PLUS
+    16     124     POPVARIND
+    16     128     POP
+    16     132     JUMP @$LABEL_3
+    16     136     $LABEL_4:
+    16     136     PUSHVAR 4
+    16     140     PUSHVAR 4
+    16     144     PUSH 1
+    16     148     MINUS
+    16     152     PUSH 4
+    16     156     PUSHFP
+    16     160     PLUS
+    16     164     POPVARIND
+    16     168     POP
+    16     172     $LABEL_5:
+    16     172     PUSHVAR 0
+  Code    Data
+    16     176     PUSHVAR 4
+    16     180     LT
+    16     184     JUMPE @$LABEL_6
+    16     188     PUSHVAR 0
+    16     192     PUSHCVARIND
+    16     196     DUP
+    16     200     PUSH 8
+    16     204     PUSHFP
+    16     208     PLUS
+    16     212     POPVARIND
+    16     216     POP
+    16     220     PUSHVAR 4
+    16     224     PUSHCVARIND
+    16     228     DUP
+    16     232     PUSHVAR 0
+    16     236     POPCVARIND
+    16     240     POP
+    16     244     PUSHVAR 8
+    16     248     DUP
+    16     252     PUSHVAR 4
+    16     256     POPCVARIND
+    16     260     POP
+    16     264     PUSHVAR 0
+    16     268     PUSHVAR 0
+    16     272     PUSH 1
+    16     276     PLUS
+    16     280     PUSH 0
+    16     284     PUSHFP
+    16     288     PLUS
+    16     292     POPVARIND
+    16     296     POP
+    16     300     PUSHVAR 4
+    16     304     PUSHVAR 4
+    16     308     PUSH 1
+    16     312     MINUS
+    16     316     PUSH 4
+    16     320     PUSHFP
+    16     324     PLUS
+    16     328     POPVARIND
+    16     332     POP
+    16     336     JUMP @$LABEL_5
+    16     340     $LABEL_6:
+    16     340     PUSHVAR -12
+    16     344     RETURNV
+    16     348     PUSH 0
+    16     352     RETURNV
+    16     356     
+    16     356     .function itostr
+    16     356     itostr:
+    16     356     ADJSP 12
+  Code    Data
+    16     360     PUSH 0
+    16     364     DUP
+    16     368     PUSH 4
+    16     372     PUSHFP
+    16     376     PLUS
+    16     380     POPVARIND
+    16     384     POP
+    16     388     PUSHVAR -16
+    16     392     DUP
+    16     396     PUSH 0
+    16     400     PUSHFP
+    16     404     PLUS
+    16     408     POPVARIND
+    16     412     POP
+    16     416     PUSHVAR -12
+    16     420     PUSH 0
+    16     424     EQ
+    16     428     JUMPE @$LABEL_7
+    16     432     PUSH 48
+    16     436     DUP
+    16     440     PUSHVAR -16
+    16     444     PUSH 0
+    16     448     PLUS
+    16     452     POPCVARIND
+    16     456     POP
+    16     460     PUSH 0
+    16     464     DUP
+    16     468     PUSHVAR -16
+    16     472     PUSH 1
+    16     476     PLUS
+    16     480     POPCVARIND
+    16     484     POP
+    16     488     PUSHVAR -16
+    16     492     RETURNV
+    16     496     $LABEL_7:
+    16     496     PUSHVAR -12
+    16     500     PUSH 0
+    16     504     LT
+    16     508     JUMPE @$LABEL_8
+    16     512     PUSH 1
+    16     516     DUP
+    16     520     PUSH 4
+    16     524     PUSHFP
+    16     528     PLUS
+    16     532     POPVARIND
+    16     536     POP
+    16     540     PUSHVAR -12
+    16     544     NEG
+    16     548     DUP
+    16     552     PUSH -12
+  Code    Data
+    16     556     PUSHFP
+    16     560     PLUS
+    16     564     POPVARIND
+    16     568     POP
+    16     572     $LABEL_8:
+    16     572     $LABEL_9:
+    16     572     PUSHVAR -12
+    16     576     PUSH 0
+    16     580     GT
+    16     584     JUMPE @$LABEL_10
+    16     588     PUSHVAR -12
+    16     592     PUSH 10
+    16     596     MOD
+    16     600     PUSH 48
+    16     604     PLUS
+    16     608     DUP
+    16     612     PUSHVAR 0
+    16     616     POPCVARIND
+    16     620     POP
+    16     624     PUSHVAR 0
+    16     628     PUSHVAR 0
+    16     632     PUSH 1
+    16     636     PLUS
+    16     640     PUSH 0
+    16     644     PUSHFP
+    16     648     PLUS
+    16     652     POPVARIND
+    16     656     POP
+    16     660     PUSHVAR -12
+    16     664     PUSH 10
+    16     668     DIVIDE
+    16     672     DUP
+    16     676     PUSH -12
+    16     680     PUSHFP
+    16     684     PLUS
+    16     688     POPVARIND
+    16     692     POP
+    16     696     JUMP @$LABEL_9
+    16     700     $LABEL_10:
+    16     700     PUSHVAR 4
+    16     704     JUMPE @$LABEL_11
+    16     708     PUSH 45
+    16     712     DUP
+    16     716     PUSHVAR 0
+    16     720     POPCVARIND
+    16     724     POP
+    16     728     PUSHVAR 0
+    16     732     PUSHVAR 0
+    16     736     PUSH 1
+    16     740     PLUS
+  Code    Data
+    16     744     PUSH 0
+    16     748     PUSHFP
+    16     752     PLUS
+    16     756     POPVARIND
+    16     760     POP
+    16     764     $LABEL_11:
+    16     764     PUSH 0
+    16     768     DUP
+    16     772     PUSHVAR 0
+    16     776     POPCVARIND
+    16     780     POP
+    16     784     PUSHVAR -16
+    16     788     CALL @strrev
+    16     792     SWAP
+    16     796     POP
+    16     800     POP
+    16     804     PUSHVAR -16
+    16     808     RETURNV
+    16     812     PUSH 0
+    16     816     RETURNV
+    16     820     
+    16     820     .function print
+    16     820     print:
+    16     820     ADJSP 24
+    16     824     PUSH 0
+    16     828     PUSHFP
+    16     832     PLUS
+    16     836     PUSHVAR -12
+    16     840     CALL @itostr
+    16     844     SWAP
+    16     848     POP
+    16     852     SWAP
+    16     856     POP
+    16     860     POP
+    16     864     PUSH 0
+    16     868     PUSHFP
+    16     872     PLUS
+    16     876     OUTS
+    16     880     PUSH @$LABEL_12
+    16     884     .dataseg
+    16     884     $LABEL_12:
+    16     884     .string "\n"
+    16     884     .codeseg
+    16     884     OUTS
+    16     888     PUSH 0
+    16     892     RETURNV
+    16     896     PUSH 0
+    16     900     RETURNV

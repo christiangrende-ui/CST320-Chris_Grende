@@ -1,0 +1,17 @@
+CALL @main
+POP
+.function main
+main:
+ADJSP 0
+PUSH 1
+CALL @print
+SWAP
+POP
+POP
+PUSH 2
+CALL @print
+SWAP
+POP
+POP
+PUSH 0
+RETURNV

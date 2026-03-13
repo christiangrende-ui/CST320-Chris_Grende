@@ -1,0 +1,292 @@
+; FILE: langout.sl
+; FILE: io320.sl
+  Code    Data
+    16       0     CALL @main
+    20       0     POP
+    24       0     .function main
+    24       0     main:
+    24       0     ADJSP 0
+    24       4     PUSH 1
+    24       8     CALL @print
+    24      12     SWAP
+    24      16     POP
+    24      20     POP
+    24      24     PUSH 2
+    24      28     CALL @print
+    24      32     SWAP
+    24      36     POP
+    24      40     POP
+    24      44     PUSH 0
+    24      48     RETURNV
+    76       0     .function strrev
+    76       0     strrev:
+    76       0     ADJSP 16
+    76       4     PUSHVAR -12
+    76       8     PUSH 0
+    76      12     EQ
+    76      16     JUMPE @$LABEL_2
+    76      20     PUSH 0
+    76      24     RETURNV
+    76      28     $LABEL_2:
+    76      28     PUSHVAR -12
+    76      32     DUP
+    76      36     PUSH 4
+    76      40     PUSHFP
+    76      44     PLUS
+    76      48     POPVARIND
+    76      52     POP
+    76      56     PUSHVAR -12
+    76      60     DUP
+    76      64     PUSH 0
+    76      68     PUSHFP
+    76      72     PLUS
+    76      76     POPVARIND
+    76      80     POP
+    76      84     $LABEL_3:
+    76      84     PUSHVAR 4
+    76      88     PUSHCVARIND
+    76      92     JUMPE @$LABEL_4
+    76      96     PUSHVAR 4
+    76     100     PUSHVAR 4
+    76     104     PUSH 1
+    76     108     PLUS
+    76     112     PUSH 4
+  Code    Data
+    76     116     PUSHFP
+    76     120     PLUS
+    76     124     POPVARIND
+    76     128     POP
+    76     132     JUMP @$LABEL_3
+    76     136     $LABEL_4:
+    76     136     PUSHVAR 4
+    76     140     PUSHVAR 4
+    76     144     PUSH 1
+    76     148     MINUS
+    76     152     PUSH 4
+    76     156     PUSHFP
+    76     160     PLUS
+    76     164     POPVARIND
+    76     168     POP
+    76     172     $LABEL_5:
+    76     172     PUSHVAR 0
+    76     176     PUSHVAR 4
+    76     180     LT
+    76     184     JUMPE @$LABEL_6
+    76     188     PUSHVAR 0
+    76     192     PUSHCVARIND
+    76     196     DUP
+    76     200     PUSH 8
+    76     204     PUSHFP
+    76     208     PLUS
+    76     212     POPVARIND
+    76     216     POP
+    76     220     PUSHVAR 4
+    76     224     PUSHCVARIND
+    76     228     DUP
+    76     232     PUSHVAR 0
+    76     236     POPCVARIND
+    76     240     POP
+    76     244     PUSHVAR 8
+    76     248     DUP
+    76     252     PUSHVAR 4
+    76     256     POPCVARIND
+    76     260     POP
+    76     264     PUSHVAR 0
+    76     268     PUSHVAR 0
+    76     272     PUSH 1
+    76     276     PLUS
+    76     280     PUSH 0
+    76     284     PUSHFP
+    76     288     PLUS
+    76     292     POPVARIND
+    76     296     POP
+    76     300     PUSHVAR 4
+    76     304     PUSHVAR 4
+  Code    Data
+    76     308     PUSH 1
+    76     312     MINUS
+    76     316     PUSH 4
+    76     320     PUSHFP
+    76     324     PLUS
+    76     328     POPVARIND
+    76     332     POP
+    76     336     JUMP @$LABEL_5
+    76     340     $LABEL_6:
+    76     340     PUSHVAR -12
+    76     344     RETURNV
+    76     348     PUSH 0
+    76     352     RETURNV
+    76     356     
+    76     356     .function itostr
+    76     356     itostr:
+    76     356     ADJSP 12
+    76     360     PUSH 0
+    76     364     DUP
+    76     368     PUSH 4
+    76     372     PUSHFP
+    76     376     PLUS
+    76     380     POPVARIND
+    76     384     POP
+    76     388     PUSHVAR -16
+    76     392     DUP
+    76     396     PUSH 0
+    76     400     PUSHFP
+    76     404     PLUS
+    76     408     POPVARIND
+    76     412     POP
+    76     416     PUSHVAR -12
+    76     420     PUSH 0
+    76     424     EQ
+    76     428     JUMPE @$LABEL_7
+    76     432     PUSH 48
+    76     436     DUP
+    76     440     PUSHVAR -16
+    76     444     PUSH 0
+    76     448     PLUS
+    76     452     POPCVARIND
+    76     456     POP
+    76     460     PUSH 0
+    76     464     DUP
+    76     468     PUSHVAR -16
+    76     472     PUSH 1
+    76     476     PLUS
+    76     480     POPCVARIND
+    76     484     POP
+    76     488     PUSHVAR -16
+  Code    Data
+    76     492     RETURNV
+    76     496     $LABEL_7:
+    76     496     PUSHVAR -12
+    76     500     PUSH 0
+    76     504     LT
+    76     508     JUMPE @$LABEL_8
+    76     512     PUSH 1
+    76     516     DUP
+    76     520     PUSH 4
+    76     524     PUSHFP
+    76     528     PLUS
+    76     532     POPVARIND
+    76     536     POP
+    76     540     PUSHVAR -12
+    76     544     NEG
+    76     548     DUP
+    76     552     PUSH -12
+    76     556     PUSHFP
+    76     560     PLUS
+    76     564     POPVARIND
+    76     568     POP
+    76     572     $LABEL_8:
+    76     572     $LABEL_9:
+    76     572     PUSHVAR -12
+    76     576     PUSH 0
+    76     580     GT
+    76     584     JUMPE @$LABEL_10
+    76     588     PUSHVAR -12
+    76     592     PUSH 10
+    76     596     MOD
+    76     600     PUSH 48
+    76     604     PLUS
+    76     608     DUP
+    76     612     PUSHVAR 0
+    76     616     POPCVARIND
+    76     620     POP
+    76     624     PUSHVAR 0
+    76     628     PUSHVAR 0
+    76     632     PUSH 1
+    76     636     PLUS
+    76     640     PUSH 0
+    76     644     PUSHFP
+    76     648     PLUS
+    76     652     POPVARIND
+    76     656     POP
+    76     660     PUSHVAR -12
+    76     664     PUSH 10
+    76     668     DIVIDE
+    76     672     DUP
+    76     676     PUSH -12
+  Code    Data
+    76     680     PUSHFP
+    76     684     PLUS
+    76     688     POPVARIND
+    76     692     POP
+    76     696     JUMP @$LABEL_9
+    76     700     $LABEL_10:
+    76     700     PUSHVAR 4
+    76     704     JUMPE @$LABEL_11
+    76     708     PUSH 45
+    76     712     DUP
+    76     716     PUSHVAR 0
+    76     720     POPCVARIND
+    76     724     POP
+    76     728     PUSHVAR 0
+    76     732     PUSHVAR 0
+    76     736     PUSH 1
+    76     740     PLUS
+    76     744     PUSH 0
+    76     748     PUSHFP
+    76     752     PLUS
+    76     756     POPVARIND
+    76     760     POP
+    76     764     $LABEL_11:
+    76     764     PUSH 0
+    76     768     DUP
+    76     772     PUSHVAR 0
+    76     776     POPCVARIND
+    76     780     POP
+    76     784     PUSHVAR -16
+    76     788     CALL @strrev
+    76     792     SWAP
+    76     796     POP
+    76     800     POP
+    76     804     PUSHVAR -16
+    76     808     RETURNV
+    76     812     PUSH 0
+    76     816     RETURNV
+    76     820     
+    76     820     .function print
+    76     820     print:
+    76     820     ADJSP 24
+    76     824     PUSH 0
+    76     828     PUSHFP
+    76     832     PLUS
+    76     836     PUSHVAR -12
+    76     840     CALL @itostr
+    76     844     SWAP
+    76     848     POP
+    76     852     SWAP
+    76     856     POP
+  Code    Data
+    76     860     POP
+    76     864     PUSH 0
+    76     868     PUSHFP
+    76     872     PLUS
+    76     876     OUTS
+    76     880     PUSH @$LABEL_12
+    76     884     .dataseg
+    76     884     $LABEL_12:
+    76     884     .string "\n"
+    76     884     .codeseg
+    76     884     OUTS
+    76     888     PUSH 0
+    76     892     RETURNV
+    76     896     PUSH 0
+    76     900     RETURNV
+Fixup main at 984 to 24
+
+********************************
+Symbol Table
+    24   main
+    76   strrev
+   104   ##LABEL_2
+   160   ##LABEL_3
+   212   ##LABEL_4
+   248   ##LABEL_5
+   416   ##LABEL_6
+   432   itostr
+   572   ##LABEL_7
+   648   ##LABEL_8
+   648   ##LABEL_9
+   776   ##LABEL_10
+   840   ##LABEL_11
+   896   print
+    76   ##LABEL_12
